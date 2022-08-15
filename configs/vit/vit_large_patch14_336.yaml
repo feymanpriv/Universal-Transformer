@@ -1,0 +1,33 @@
+DATA:
+  DATASET: universal
+  SPLIT: train_list_all_v1.txt
+  IMG_SIZE: 336
+MODEL:
+  TYPE: vit
+  NAME: ViT-L-14@336px
+  NUM_CLASSES: 373064
+  DROP_PATH_RATE: 0.2
+  VIT:
+    EMBED_DIM: 768
+    DEPTHS: 24
+    NUM_HEADS: 16
+    PATCH_SIZE: 14
+    WIDTH: 1024
+TRAIN:
+  EPOCHS: 90
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.05
+
+  #for finetune
+#   BASE_LR: 1.0e-4 # 4096 batch-size
+#   WARMUP_LR: 1.0e-7
+#   MIN_LR: 1.0e-6
+  
+  # for linear probe
+  BASE_LR: 1.0e-3 # 4096 batch-size
+  WARMUP_LR: 1.0e-6
+  MIN_LR: 1.0e-5
+  
+  #BASE_LR: 1.25e-4 # 4096 batch-size
+  #WARMUP_LR: 1.25e-7
+  #MIN_LR: 1.25e-6
